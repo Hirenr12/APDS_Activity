@@ -7,13 +7,9 @@ const router = express.Router();
 //Get all the records.
 
 router.get("/", async (req, res) => {
-    let connection= await db.collection("posts");
-
-let results = await collection.find({}).toArray();
-res.send(results).status(200);
-
-
-
+    let collection= await db.collection("posts");
+    let results = await collection.find({}).toArray();
+    res.send(results).status(200);
 });
 
 // Create a new record 
