@@ -45,7 +45,7 @@ router.post("/login", bruteforce.prevent, async (req, res)=>{
 
         else{
             //Authentication successful
-            const token = jwt.sign({username: req.body.username,password:req.body.password},"this_secret_should_be_longer_than_it_is",{expressIn:"1h"})
+            const token = jwt.sign({username: req.body.username,password:req.body.password},"this_secret_should_be_longer_than_it_is",{expiresIn:"1h"})
             res.status(200).json({ message: "Authentication successful", token: token, name: req.body.name});
             console.log("your new token is", token)
         }
