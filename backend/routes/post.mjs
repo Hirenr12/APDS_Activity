@@ -61,7 +61,7 @@ router.delete("/:id",  checkauth, async (req, res)=> {
     const query = {_id: new ObjectId(req.params.id) };
 
     const collection = db.collection("posts");
-    let result = await collection.delete(query);
+    let result = await collection.deleteOne(query);
 
     res.send(result).status(200);
 
